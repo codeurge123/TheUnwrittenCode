@@ -143,7 +143,7 @@ export default function Home() {
         text-blue-500 hover:text-blue-800
       ">
         <Link
-          to="https://github.com/"
+          to="https://github.com/codeurge123"
           target="_blank"
         >
           <span>[</span>
