@@ -19,7 +19,8 @@ export default function Navbar() {
                 font-mono
                 font-normal
             ">
-                <NavLink to="">
+                <NavLink to="/"
+                >
                     The Unwritten Code
                 </NavLink>
             </p>

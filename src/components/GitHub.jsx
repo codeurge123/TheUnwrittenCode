@@ -9,7 +9,7 @@ function CardWithLabel({ label, children }) {
       {/* Floating Label */}
       <span
         className="
-          absolute -top-4 left-4 sm:left-8
+          absolute -top-4 hover:rotate-2 hover:scale-110 transition-all duration-150 left-4 sm:left-8
           px-4 py-1
           text-xs sm:text-sm
           font-mono
