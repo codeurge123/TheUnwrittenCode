@@ -78,7 +78,7 @@ export default function GitHub() {
         text-blue-500 hover:text-blue-800
       ">
         <Link
-          to="https://github.com/codeurge123"
+          to="https://github.com"
           target="_blank"
         >
           <span>[</span>
