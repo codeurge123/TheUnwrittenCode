@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DevLogs from "../Logs";
 
-/* ---------------------------------------
-   Reusable Floating Card
---------------------------------------- */
 function CardWithLabel({ label, children }) {
   return (
     <div className="relative max-w-6xl mx-auto mt-14 px-2 sm:px-0">
@@ -40,10 +37,7 @@ function CardWithLabel({ label, children }) {
   );
 }
 
-/* ---------------------------------------
-   GitHub Logs Page
---------------------------------------- */
-export default function Leetcode() {
+export default function GitHub() {
   return (
     <div className="transition-colors duration-300 px-4 sm:px-6">
 

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DevLogs from "../Logs";
 
-/* ---------------------------------------
-   Reusable Floating Card
---------------------------------------- */
+
 function CardWithLabel({ label, theme = "amber", children }) {
   const themes = {
     amber: {
