@@ -55,7 +55,7 @@ function CardWithLabel({ label, theme = "amber", children }) {
 export default function Leetcode() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const username = "code_urgyb316_";
+  const username = "vineet_15";
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -187,7 +187,7 @@ export default function Leetcode() {
         text-blue-500 hover:text-blue-800
       ">
         <Link
-          to="https://github.com/codeurge123"
+          to="https://github.com/"
           target="_blank"
         >
           <span>[</span>
