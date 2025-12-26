@@ -9,16 +9,13 @@ export default function Article() {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-
-      // limit max shift so it doesn't go too far
       const maxShift = 100;
-      setShift(Math.min(y/5, maxShift));
+      setShift(Math.min(y / 5, maxShift));
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   return (
     <article
@@ -35,21 +32,19 @@ export default function Article() {
       {/* Back Button */}
       <button
         onClick={() => navigate("/")}
-        style={{
-          transform: `translateX(-${shift}px)`
-        }}
+        style={{ transform: `translateX(-${shift}px)` }}
         className="
-        sticky top-4
-        inline-flex items-center
-        mb-8
-        border-2 px-3 py-1
-        text-sm sm:text-base
-        rounded-md
-        font-mono
-        transition-all duration-300 ease-out
-        hover:bg-black hover:text-white
-        dark:hover:bg-white dark:hover:text-black
-      "
+          sticky top-4
+          inline-flex items-center
+          mb-8
+          border-2 px-3 py-1
+          text-sm sm:text-base
+          rounded-md
+          font-mono
+          transition-all duration-300 ease-out
+          hover:bg-black hover:text-white
+          dark:hover:bg-white dark:hover:text-black
+        "
       >
         ← Back
       </button>
@@ -106,15 +101,9 @@ export default function Article() {
       </p>
 
       <ol className="mt-4 list-decimal list-inside space-y-2">
-        <li>
-          <strong>HTML Structure:</strong> Defines the layout and elements
-        </li>
-        <li>
-          <strong>CSS Styling:</strong> Handles animations and transitions
-        </li>
-        <li>
-          <strong>JavaScript Logic:</strong> Adds interactivity
-        </li>
+        <li><strong>HTML Structure:</strong> Defines the layout and elements</li>
+        <li><strong>CSS Styling:</strong> Handles animations and transitions</li>
+        <li><strong>JavaScript Logic:</strong> Adds interactivity</li>
       </ol>
 
       {/* Rendering Flow */}
@@ -144,6 +133,40 @@ export default function Article() {
         CreatX is actively under development. New animations, improved previews,
         and better tooling are being added incrementally.
       </p>
+
+      {/* Project Links */}
+      <h2 className="mt-10 sm:mt-12 text-lg sm:text-xl font-semibold">
+        Project Links
+      </h2>
+      <p className="mt-4">
+        You can explore the live version of CreatX or review the complete source
+        code using the links below.
+      </p>
+
+      <div className="mt-4 space-y-2">
+        <p>
+          🔗{" "}
+          <a
+            href="https://github.com/codeurge123/Creatx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-semibold"
+          >
+            GitHub Repository
+          </a>
+        </p>
+        <p>
+          🚀{" "}
+          <a
+            href="https://creatxui.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-semibold"
+          >
+            Live Demo
+          </a>
+        </p>
+      </div>
 
       {/* Future Plans */}
       <h2 className="mt-10 sm:mt-12 text-lg sm:text-xl font-semibold">

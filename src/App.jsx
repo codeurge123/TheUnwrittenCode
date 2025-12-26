@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Article1 from "./blog/Article1";
+import Article2 from "./blog/Article2";
 import Article0 from "./blog/Article0";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Leetcode from "./components/Leetcode";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/github" element={<GitHub />} />
           <Route path="/Article/blog0" element={<Article0 />} />
           <Route path="/Article/blog1" element={<Article1 />} />
+          <Route path="/Article/blog2" element={<Article2 />} />
           <Route path="/Article/leetcode01" element={<LeetcodeArticle01 />} />
           <Route path="/Article/leetcode02" element={<LeetcodeArticle02 />} />
         </Routes>

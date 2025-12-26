@@ -19,6 +19,13 @@ const DevLogs = [
     date: "23/12/2025",
     path: "/Article/leetcode02",
     category: "leetcode"
+  },
+  {
+    id: 4,
+    title: "SkinCureX – An AI-Assisted Skin Disease Detection Platform",
+    date: "12/07/2025",
+    path: "/Article/blog2",
+    category: "github"
   }
 ];
 
