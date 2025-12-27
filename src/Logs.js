@@ -22,7 +22,7 @@ const DevLogs = [
   },
   {
     id: 4,
-    title: "SkinCureX – An AI-Assisted Skin Disease Detection Platform",
+    title: "SkinCureX: My Journey into AI-Powered Skin Analysis",
     date: "12/07/2025",
     path: "/Article/blog2",
     category: "github"
