@@ -10,6 +10,7 @@ import Leetcode from "./components/Leetcode";
 import GitHub from "./components/GitHub"
 import LeetcodeArticle01 from "./blog/LeetcodeArticle01";
 import LeetcodeArticle02 from "./blog/LeetcodeArticle02";
+import Create from "./components/Create";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Article/blog2" element={<Article2 />} />
           <Route path="/Article/leetcode01" element={<LeetcodeArticle01 />} />
           <Route path="/Article/leetcode02" element={<LeetcodeArticle02 />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
 
         {/* Dark Mode Toggle */}
@@ -53,7 +55,7 @@ function App() {
           className="fixed bottom-6 right-6 
                      font-mono px-4 py-2 
                      cursor-pointer
-
+                      button-stl
                      shadow-black
                      border-2 rounded-md
                      bg-white dark:bg-zinc-800

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import DevLogs from "../Logs";
 
 
-function CardWithLabel({ label, theme = "amber", children }) {
+function CardWithLabel({ label, theme = "amber",highlight = false, children }) {
   const themes = {
     amber: {
       labelBg: "bg-amber-300 dark:bg-amber-500",
@@ -20,7 +20,9 @@ function CardWithLabel({ label, theme = "amber", children }) {
   const t = themes[theme];
 
   return (
-    <div className="relative max-w-6xl mx-auto mt-14 px-2 sm:px-0">
+    <div className={`relative max-w-6xl mx-auto mt-14 px-2 sm:px-0
+        ${highlight ? 'card-stl' : ''}
+    `}>
       {/* Floating Label */}
       <span
         className={`
@@ -100,7 +102,7 @@ export default function Leetcode() {
     <div className="transition-colors  duration-300 px-4 sm:px-6">
 
       {/* LeetCode Stats */}
-      <CardWithLabel label="LeetCode Stats" theme="amber">
+      <CardWithLabel label="LeetCode Stats" theme="amber" highlight>
         <p className="text-sm text-black sm:text-base leading-relaxed mb-6">
           This section tracks my <strong>LeetCode problem-solving journey</strong>.
           It reflects consistency, logical thinking, and progress across

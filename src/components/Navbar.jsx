@@ -56,6 +56,13 @@ export default function Navbar() {
                     </span>
                     <span className="text-lg sm:text-xl">]</span>
                 </NavLink>
+                <NavLink to="/create">
+                    <span className="text-lg sm:text-xl">[</span>
+                    <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500">
+                        Create
+                    </span>
+                    <span className="text-lg sm:text-xl">]</span>
+                </NavLink>
             </div>
         </div>
     );

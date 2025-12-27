@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import DevLogs from "../Logs.js";
 
 
-function CardWithLabel({ label, theme = "amber", children }) {
+function CardWithLabel({ label, theme = "amber", highlight = false, children }) {
   const themes = {
     amber: {
       labelBg: "bg-amber-300 dark:bg-amber-500",
@@ -25,7 +25,11 @@ function CardWithLabel({ label, theme = "amber", children }) {
   const t = themes[theme];
 
   return (
-    <div className="relative max-w-6xl mx-auto mt-14 px-2 sm:px-0">
+    <div className={`relative max-w-6xl mx-auto mt-14 px-2 sm:px-0
+        ${highlight ? 'card-stl' : '' }
+      `
+    }
+      >
       {/* Floating Label */}
       <span
         className={`
@@ -62,7 +66,7 @@ export default function Home() {
     <div className="transition-colors duration-300 px-4 sm:px-6">
 
       {/* Notice Board */}
-      <CardWithLabel label="Notice Board" theme="amber">
+      <CardWithLabel label="Notice Board" theme="amber" highlight>
         <p className="text-sm sm:text-base mb-8">
           This space is where I share updates about my learning journey,
           experiments, and code explorations. You’ll find short notes,
@@ -87,7 +91,7 @@ export default function Home() {
       </CardWithLabel>
 
       {/* Welcome */}
-      <CardWithLabel label="Welcome" theme="slate">
+      <CardWithLabel label="Welcome" theme="slate" highlight>
         <p className="text-sm sm:text-base mb-6">
           <span className="font-semibold block mb-2">
             Welcome to The Unwritten Code.
