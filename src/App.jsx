@@ -13,7 +13,7 @@ import LeetcodeArticle02 from "./blog/LeetcodeArticle02";
 import Create from "./components/Create";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   // apply/remove dark class on html
   useEffect(() => {

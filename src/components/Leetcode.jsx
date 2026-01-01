@@ -198,6 +198,14 @@ export default function Leetcode() {
         </Link>
       </div>
 
+      <div>
+        <p>Please Hit the Like Button</p>
+        {/* Like Button */}
+        <p>if you like my work/blog</p>
+        <p>It Keeps me motivated</p>
+      </div>
+
+
     </div>
   );
 }
