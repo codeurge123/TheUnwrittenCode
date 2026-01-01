@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import DevLogs from "../Logs.js";
 
 
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+};
 function CardWithLabel({ label, theme = "amber", highlight = false, children }) {
+
   const themes = {
     amber: {
       labelBg: "bg-amber-300 dark:bg-amber-500",
@@ -26,10 +35,10 @@ function CardWithLabel({ label, theme = "amber", highlight = false, children }) 
 
   return (
     <div className={`relative max-w-6xl mx-auto mt-14 px-2 sm:px-0
-        ${highlight ? 'card-stl' : '' }
+        ${highlight ? 'card-stl' : ''}
       `
     }
-      >
+    >
       {/* Floating Label */}
       <span
         className={`
@@ -76,7 +85,9 @@ export default function Home() {
           and continuously evolving.
         </p>
 
-        <Link to="/Article/blog0">
+        <Link to="/Article/blog0"
+          onClick={scrollToTop}
+        >
           <span className="text-xl">[</span>
           <span className="
             border-b-2 border-blue-400
@@ -124,7 +135,9 @@ export default function Home() {
             {log.title}
           </p>
 
-          <Link to={log.path}>
+          <Link to={log.path}
+            onClick={scrollToTop}
+          >
             <span className="text-xl">[</span>
             <span className="
               border-b-2 border-blue-400

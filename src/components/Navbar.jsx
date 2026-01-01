@@ -2,6 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+
+    const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
     return (
         <div className="
             bg-blue-600
@@ -20,6 +29,7 @@ export default function Navbar() {
                 font-normal
             ">
                 <NavLink to="/"
+                onClick={scrollToTop}
                 >
                     The Unwritten Code
                 </NavLink>
@@ -33,7 +43,9 @@ export default function Navbar() {
                 text-sm sm:text-base
                 flex
             ">
-                <NavLink to="/">
+                <NavLink to="/"
+                onClick={scrollToTop}
+                >
                     <span className="text-lg sm:text-xl">[</span>
                     <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500 transition-all duration-150">
                         Home
@@ -41,7 +53,9 @@ export default function Navbar() {
                     <span className="text-lg sm:text-xl">]</span>
                 </NavLink>
 
-                <NavLink to="/github">
+                <NavLink to="/github"
+                onClick={scrollToTop}
+                >
                     <span className="text-lg sm:text-xl">[</span>
                     <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500 transition-all duration-150">
                         GitHub
@@ -49,14 +63,18 @@ export default function Navbar() {
                     <span className="text-lg sm:text-xl">]</span>
                 </NavLink>
 
-                <NavLink to="/leetcode">
+                <NavLink to="/leetcode"
+                onClick={scrollToTop}
+                >
                     <span className="text-lg sm:text-xl">[</span>
                     <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500">
                         Leetcode
                     </span>
                     <span className="text-lg sm:text-xl">]</span>
                 </NavLink>
-                <NavLink to="/create">
+                <NavLink to="/create"
+                onClick={scrollToTop}
+                >
                     <span className="text-lg sm:text-xl">[</span>
                     <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500">
                         Create
