@@ -21,12 +21,12 @@ function App() {
     // darkMode ? root.classList.add("dark") : root.classList.remove("dark");
 
     if(darkMode) {
-      root.classList.remove("light");
+      root.classList.remove("#f3e9dc");
       root.classList.add("dark");
     }
     else {
       root.classList.remove("dark");
-      root.classList.add("light");
+      root.classList.add("#f3e9dc");
     }
 
   }, [darkMode]);
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      <div className="min-h-screen bg-white/30 text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
         <Navbar />
 

@@ -3,11 +3,11 @@ button {
 }
 
 .card-stl {
-  box-shadow: 4px 4px;
+  box-shadow: 5px 5px;
 }
 
 .card-stl:hover {
-  box-shadow: 1px 1px;
+  box-shadow: 0px 0px;
   transition: all .3s;
   translate: 3px 5px 2px;
 
