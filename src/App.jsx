@@ -13,7 +13,7 @@ import LeetcodeArticle02 from "./blog/LeetcodeArticle02";
 import Create from "./components/Create";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   // apply/remove dark class on html
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white/30 text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+      <div className="min-h-screen bg-white/30 text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300 selection:bg-amber-400 selection:text-black dark:selection:text-zinc-900">
 
         <Navbar />
 
