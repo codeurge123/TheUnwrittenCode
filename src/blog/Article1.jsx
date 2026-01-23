@@ -20,14 +20,15 @@ export default function Article() {
   return (
     <article
       className="
-        relative
-        max-w-4xl mx-auto
-        px-4 sm:px-6
-        py-12 sm:py-16
-        font-mono
-        text-gray-900 dark:text-zinc-100
-        transition-colors duration-300
-      "
+    relative
+    max-w-4xl mx-auto
+    px-4 sm:px-6
+    py-12 sm:py-16
+    font-mono
+    text-gray-900 dark:text-zinc-100
+    transition-colors duration-300
+    text-justify
+  "
     >
       {/* Back Button */}
       <button

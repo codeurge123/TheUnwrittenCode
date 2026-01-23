@@ -1,39 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 export default function Article0() {
   const navigate = useNavigate();
-    const [shift, setShift] = useState(0);
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        const y = window.scrollY;
-  
-        // limit max shift so it doesn't go too far
-        const maxShift = 100;
-        setShift(Math.min(y/5, maxShift));
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-  
+  const [shift, setShift] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+
+      // limit max shift so it doesn't go too far
+      const maxShift = 100;
+      setShift(Math.min(y / 5, maxShift));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
     <article
       className="
-        relative
-        max-w-4xl mx-auto
-        px-4 sm:px-6
-        py-12 sm:py-16
-        font-mono
-        text-gray-900 dark:text-zinc-100
-        transition-colors duration-300
-      "
+    relative
+    max-w-4xl mx-auto
+    px-4 sm:px-6
+    py-12 sm:py-16
+    font-mono
+    text-gray-900 dark:text-zinc-100
+    transition-colors duration-300
+    text-justify
+  "
     >
       {/* Back Button */}
-       <button
+      <button
         onClick={() => navigate("/")}
         style={{
           transform: `translateX(-${shift}px)`

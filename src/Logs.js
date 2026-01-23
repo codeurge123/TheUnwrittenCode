@@ -26,6 +26,13 @@ const DevLogs = [
     date: "12/07/2025",
     path: "/Article/blog2",
     category: "github"
+  },
+  {
+    id: 5,
+    title: "Building My Own npm Package: From Idea to 800+ Downloads",
+    date: "27/12/2025",
+    path: "/Article/blog3",
+    category: "github"
   }
 ];
 
