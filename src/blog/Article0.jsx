@@ -10,7 +10,7 @@ export default function Article0() {
     const handleScroll = () => {
       const y = window.scrollY;
 
-      // limit max shift so it doesn't go too far
+      // limit max shift so it doesn't go too far --> ye yaad rakhna hai accha sa
       const maxShift = 100;
       setShift(Math.min(y / 5, maxShift));
     };
@@ -24,6 +24,7 @@ export default function Article0() {
     <article
       className="
     relative
+    bg-neutral-100
     max-w-4xl mx-auto
     px-4 sm:px-6
     py-12 sm:py-16

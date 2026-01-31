@@ -28,6 +28,7 @@ export default function Article() {
         font-mono
         text-gray-900 dark:text-zinc-100
         transition-colors duration-300
+        bg-neutral-100
         text-justify
         leading-relaxed
       "

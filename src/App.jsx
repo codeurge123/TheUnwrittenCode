@@ -36,7 +36,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white/30 text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300 selection:bg-amber-400 selection:text-black dark:selection:text-zinc-900">
+      <div className="min-h-screen bg-neutral-100 text-black dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300 selection:bg-amber-400 selection:text-black dark:selection:text-zinc-900">
 
         <Navbar />
 

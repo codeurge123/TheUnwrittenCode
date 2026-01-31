@@ -27,6 +27,7 @@ export default function LeetcodeArticle01() {
     py-12 sm:py-16
     font-mono
     text-gray-900 dark:text-zinc-100
+    bg-neutral-100
     transition-colors duration-300
     text-justify
   "
