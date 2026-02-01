@@ -15,7 +15,7 @@ export default function Navbar() {
 
     return (
         <div className="
-            bg-blue-600
+            bg-blue-700
             min-h-16
             px-4
             flex
