@@ -23,6 +23,7 @@ export default function Article() {
     relative
     max-w-4xl mx-auto
     px-4 sm:px-6
+    dark:bg-zinc-900
     py-12 sm:py-16
     bg-neutral-100
     font-mono

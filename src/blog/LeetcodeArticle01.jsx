@@ -25,6 +25,7 @@ export default function LeetcodeArticle01() {
     max-w-4xl mx-auto
     px-4 sm:px-6
     py-12 sm:py-16
+    dark:bg-zinc-900
     font-mono
     text-gray-900 dark:text-zinc-100
     bg-neutral-100

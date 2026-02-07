@@ -28,6 +28,7 @@ export default function DSATracking() {
     py-12 sm:py-16
     font-mono
     text-gray-900 dark:text-zinc-100
+    dark:bg-zinc-900
     transition-colors duration-300
     bg-neutral-100
     text-justify

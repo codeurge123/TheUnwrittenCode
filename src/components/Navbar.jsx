@@ -45,44 +45,86 @@ export default function Navbar() {
                 text-sm sm:text-base
                 flex
             ">
-                <NavLink to="/"
-                    onClick={scrollToTop}
-                >
-                    <span className="text-lg sm:text-xl">[</span>
-                    <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500 transition-all duration-150">
-                        Home
-                    </span>
-                    <span className="text-lg sm:text-xl">]</span>
+                <NavLink to="/" onClick={scrollToTop}>
+                    {({ isActive }) => (
+                        <>
+                            <span className="text-lg sm:text-xl">[</span>
+                            <span
+                                className={`
+          text-md
+          transition-all duration-150
+          border-b-2
+          ${isActive ? "border-orange-400" : "border-white hover:border-yellow-500"}
+        `}
+                            >
+                                Home
+                            </span>
+                            <span className="text-lg sm:text-xl">]</span>
+                        </>
+                    )}
                 </NavLink>
 
-                <NavLink to="/github"
-                    onClick={scrollToTop}
-                >
-                    <span className="text-lg sm:text-xl">[</span>
-                    <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500 transition-all duration-150">
-                        GitHub
-                    </span>
-                    <span className="text-lg sm:text-xl">]</span>
+
+                <NavLink to="/github" onClick={scrollToTop}>
+                    {({ isActive }) => (
+                        <>
+                            <span className="text-lg sm:text-xl">[</span>
+                            <span
+                                className={`
+          text-md
+          transition-all duration-150
+          border-b-2
+          ${isActive ? "border-orange-400" : "border-white hover:border-yellow-500"}
+        `}
+                            >
+                                GitHub
+                            </span>
+                            <span className="text-lg sm:text-xl">]</span>
+                        </>
+                    )}
                 </NavLink>
 
-                <NavLink to="/leetcode"
-                    onClick={scrollToTop}
-                >
-                    <span className="text-lg sm:text-xl">[</span>
-                    <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500">
-                        Leetcode
-                    </span>
-                    <span className="text-lg sm:text-xl">]</span>
+
+                <NavLink to="/leetcode" onClick={scrollToTop}>
+                    {({ isActive }) => (
+                        <>
+                            <span className="text-lg sm:text-xl">[</span>
+                            <span
+                                className={`
+          text-md
+          transition-all duration-150
+          border-b-2
+          ${isActive ? "border-orange-400" : "border-white hover:border-yellow-500"}
+        `}
+                            >
+                                Leetcode
+                            </span>
+                            <span className="text-lg sm:text-xl">]</span>
+                        </>
+                    )}
                 </NavLink>
-                <NavLink to="/"
-                    onClick={() => setCreate(true)}
-                >
-                    <span className="text-lg sm:text-xl">[</span>
-                    <span className="border-b-1 text-md border-white hover:border-b-2 hover:border-yellow-500">
-                        Create
-                    </span>
-                    <span className="text-lg sm:text-xl">]</span>
+
+                <NavLink to="/create"
+                    onClick={() => setCreate(true)}>
+                        {({isActive}) => (
+                            <>
+                            <span className="text-lg sm:text-xl">[</span>
+                            <span
+                                className={`
+          text-md
+          transition-all duration-150
+          border-b-2
+          ${isActive ? "border-orange-400" : "border-white hover:border-yellow-500"}
+        `}
+                            >
+                                Create
+                            </span>
+                            <span className="text-lg sm:text-xl">]</span>
+                        </>
+                    )}
                 </NavLink>
+
+                
                 {create && (
                     <div className="w-full h-screen border  border-yellow-400 bg-yellow-500 flex flex-col justify-center items-center space-y-6 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 scroll-none">
                         <div>

@@ -31,6 +31,7 @@ export default function Article() {
         bg-neutral-100
         text-justify
         leading-relaxed
+        dark:bg-zinc-900
       "
     >
       {/* Back Button */}

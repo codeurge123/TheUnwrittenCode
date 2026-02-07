@@ -29,6 +29,7 @@ export default function Article0() {
     px-4 sm:px-6
     py-12 sm:py-16
     font-mono
+    dark:bg-zinc-900
     text-gray-900 dark:text-zinc-100
     transition-colors duration-300
     text-justify
