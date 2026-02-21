@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import DevLogs from "../Logs";
 
 
-function CardWithLabel({ label, theme = "amber",highlight = false, children }) {
+function CardWithLabel({ label, theme = "amber", highlight = false, children }) {
   const themes = {
     amber: {
       labelBg: "bg-amber-300 dark:bg-amber-500",
@@ -55,97 +55,76 @@ function CardWithLabel({ label, theme = "amber",highlight = false, children }) {
 
 
 export default function Leetcode() {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const username = "code_urgyb316_";
+  //   const [data, setData] = useState(null);
+  //   const [error, setError] = useState(null);
+  //   const username = "code_urgyb316_";
 
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const res = await fetch(
-          `https://leetcode-stats-api.herokuapp.com/${username}`
-        );
+  //   useEffect(() => {
+  //     const controller = new AbortController();
+  //     const timeout = 10000; // 30 seconds
 
-        if (!res.ok) throw new Error("Network response failed");
+  //     const fetchStats = async () => {
+  //       try {
+  //         const timeoutId = setTimeout(() => {
+  //           controller.abort(); // cancel request after 30 sec
+  //         }, timeout);
 
-        const result = await res.json();
-        if (result.status !== "success") {
-          throw new Error("LeetCode user not found");
-        }
+  //         const res = await fetch(
+  //           `https://leetcode-stats-api.herokuapp.com/${username}`,
+  //           { signal: controller.signal }
+  //         );
 
-        setData(result);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+  //         clearTimeout(timeoutId); // clear timeout if response comes early
 
-    fetchStats();
-  }, []);
+  //         if (!res.ok) throw new Error("Network response failed");
 
-  if (error) {
-    return (
-      <div className="text-sm text-red-400 font-mono text-center mt-14">
-        {error}
-      </div>
-    );
-  }
+  //         const result = await res.json();
 
-  if (!data) {
-    return (
-      <div className="text-sm text-zinc-400 font-mono text-center mt-14">
-        Fetching LeetCode stats...
-      </div>
-    );
-  }
+  //         if (result.status !== "success") {
+  //           throw new Error("LeetCode user not found");
+  //         }
+
+  //         setData(result);
+  //       } catch (err) {
+  //         if (err.name === "AbortError") {
+  //           setError("Request took too long (30s). Please try again.");
+  //         } else {
+  //           setError(err.message);
+  //         }
+  //       }
+  //     };
+
+  //     fetchStats();
+
+  //     return () => controller.abort(); // cleanup on unmount
+  //   }, []);
+
+  // if (!data) {
+  //   return (
+  //     <div className="text-sm text-zinc-400 font-mono text-center mt-14">
+  //       Fetching LeetCode stats...
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="transition-colors  duration-300 px-4 sm:px-6">
 
       {/* LeetCode Stats */}
-      <CardWithLabel label="LeetCode Stats" theme="amber" highlight>
+      <CardWithLabel label="LeetCode Journey" theme="amber" highlight>
         <p className="text-sm text-black sm:text-base leading-relaxed mb-6">
-          This section tracks my <strong>LeetCode problem-solving journey</strong>.
-          It reflects consistency, logical thinking, and progress across
-          data structures, algorithms, and competitive programming challenges.
-          I actively use LeetCode to sharpen problem-solving skills and
-          prepare for technical interviews.
+          My LeetCode journey represents a continuous process of growth,
+          discipline, and problem-solving excellence. Through consistent practice,
+          I have strengthened my understanding of data structures and algorithms,
+          improved analytical thinking, and developed the ability to approach
+          complex problems with structured logic.
+
+          Solving diverse challenges across arrays, strings, recursion, dynamic
+          programming, graphs, and advanced algorithmic patterns has enhanced my
+          coding efficiency and debugging skills. LeetCode has played a key role
+          in building confidence for technical interviews and sharpening my
+          competitive programming mindset.
         </p>
-
-        <div className="space-y-2 text-sm sm:text-base">
-          <p>
-            <span className="text-zinc-600">User:</span>{" "}
-            <span className="font-semibold text-black">{username}</span>
-          </p>
-
-          <p>
-            <span className="text-zinc-600">Global Rank:</span>{" "}
-            <span className="font-semibold text-black">{data.ranking}</span>
-          </p>
-
-          <p>
-            <span className="text-zinc-600">Total Solved:</span>{" "}
-            <span className="text-emerald-600 font-semibold">
-              {data.totalSolved}
-            </span>
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <a
-            href={`https://leetcode.com/${username}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-block
-              text-sm font-mono
-              underline underline-offset-4
-              hover:text-amber-700
-              text-black
-            "
-          >
-            View LeetCode Profile →
-          </a>
-        </div>
       </CardWithLabel>
 
       {/* Dev Logs Heading */}
@@ -156,30 +135,32 @@ export default function Leetcode() {
       </div>
 
       {/* Dev Logs */}
-      {DevLogs.filter(log => log.category === "leetcode").map(log => (
-        <CardWithLabel
-          key={log.id}
-          label={log.date}
-          theme="blue"
-        >
-          <p className="text-sm sm:text-base mb-6">
-            {log.title}
-          </p>
+      {
+        DevLogs.filter(log => log.category === "leetcode").map(log => (
+          <CardWithLabel
+            key={log.id}
+            label={log.date}
+            theme="blue"
+          >
+            <p className="text-sm sm:text-base mb-6">
+              {log.title}
+            </p>
 
-          <Link to={log.path}>
-            <span className="text-xl">[</span>
-            <span className="
+            <Link to={log.path}>
+              <span className="text-xl">[</span>
+              <span className="
               border-b-2 border-blue-400
               hover:border-blue-700
               dark:border-blue-400 dark:hover:border-blue-300
               transition
             ">
-              Read Article
-            </span>
-            <span className="text-xl">]</span>
-          </Link>
-        </CardWithLabel>
-      ))}
+                Read Article
+              </span>
+              <span className="text-xl">]</span>
+            </Link>
+          </CardWithLabel>
+        ))
+      }
 
       {/* Footer */}
       <div className="
@@ -198,6 +179,6 @@ export default function Leetcode() {
         </Link>
       </div>
 
-    </div>
+    </div >
   );
 }
