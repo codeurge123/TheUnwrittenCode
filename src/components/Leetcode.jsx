@@ -96,7 +96,6 @@ export default function Leetcode() {
 
   //     fetchStats();
 
-  //     return () => controller.abort(); // cleanup on unmount
   //   }, []);
 
   // if (!data) {
