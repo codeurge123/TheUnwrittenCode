@@ -57,7 +57,7 @@ function CardWithLabel({ label, theme = "amber", highlight = false, children }) 
 export default function Leetcode() {
   //   const [data, setData] = useState(null);
   //   const [error, setError] = useState(null);
-  //   const username = "code_urgyb316_";
+  //   const username = "";
 
   //   useEffect(() => {
   //     const controller = new AbortController();
