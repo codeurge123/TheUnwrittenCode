@@ -11,7 +11,6 @@ export default function Navbar() {
         });
     };
 
-    const [create, setCreate] = React.useState(false);
 
     return (
         <div className="
@@ -125,21 +124,6 @@ export default function Navbar() {
                 </NavLink>
 
                 
-                {create && (
-                    <div className="w-full h-screen border  border-yellow-400 bg-yellow-500 flex flex-col justify-center items-center space-y-6 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 scroll-none">
-                        <div>
-                            <h1 className="text-4xl text-center mb-10 selection:bg-transparent"><span>[</span>Create<span>]</span></h1>
-                            <p className="text-xl text-center selection:bg-transparent">Coming soon...</p>
-                        </div>
-                        <button className="selection:bg-transparent" onClick={() => setCreate(false)}>
-                            <span className="text-lg sm:text-xl">[</span>
-                            <span className="border-b-2 text-md border-white hover:border-b-2 hover:border-blue-500">
-                                Close
-                            </span>
-                            <span className="text-lg sm:text-xl">]</span>
-                        </button>
-                    </div>
-                )}
             </div>
         </div>
 
