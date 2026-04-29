@@ -103,26 +103,6 @@ export default function Navbar() {
                     )}
                 </NavLink>
 
-                <NavLink to="/create"
-                    onClick={() => setCreate(true)}>
-                        {({isActive}) => (
-                            <>
-                            <span className="text-lg sm:text-xl">[</span>
-                            <span
-                                className={`
-          text-md
-          transition-all duration-150
-          border-b-2
-          ${isActive ? "border-orange-400" : "border-white hover:border-yellow-500"}
-        `}
-                            >
-                                Create
-                            </span>
-                            <span className="text-lg sm:text-xl">]</span>
-                        </>
-                    )}
-                </NavLink>
-
                 
             </div>
         </div>
