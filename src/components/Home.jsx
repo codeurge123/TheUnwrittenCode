@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DevLogs from "../Logs.js";
+import { getBlogs } from "../services/blogApi";
 
 
 
@@ -71,6 +71,32 @@ function CardWithLabel({ label, theme = "amber", highlight = false, children }) 
 
 
 export default function Home() {
+  const [blogs, setBlogs] = useState([]);
+  const [status, setStatus] = useState("loading");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadBlogs() {
+      try {
+        const data = await getBlogs();
+        if (!isMounted) return;
+        setBlogs(data);
+        setStatus("ready");
+      } catch (loadError) {
+        if (!isMounted) return;
+        setError(loadError.message);
+        setStatus("error");
+      }
+    }
+
+    loadBlogs();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="transition-colors duration-300 px-4 sm:px-6">
 
@@ -124,18 +150,33 @@ export default function Home() {
         </p>
       </div>
 
-      {/* Dev Logs Cards */}
-      {DevLogs.map((log) => (
+      {status === "loading" && (
+        <p className="text-center mt-10 font-mono text-sm">Loading blogs...</p>
+      )}
+
+      {status === "error" && (
+        <p className="text-center mt-10 font-mono text-sm text-red-700">
+          Could not load blogs: {error}
+        </p>
+      )}
+
+      {status === "ready" && blogs.map((blog) => (
         <CardWithLabel
-          key={log.id}
-          label={log.date}
+          key={blog.slug}
+          label={blog.date}
           theme="blue"
         >
-          <p className="text-sm sm:text-base mb-6">
-            {log.title}
+          <p className="text-sm sm:text-base mb-2 font-semibold">
+            {blog.title}
           </p>
 
-          <Link to={log.path}
+          {blog.description && (
+            <p className="text-sm sm:text-base mb-6 text-zinc-700 dark:text-zinc-300">
+              {blog.description}
+            </p>
+          )}
+
+          <Link to={`/Article/${blog.slug}`}
             onClick={scrollToTop}
           >
             <span className="text-xl">[</span>

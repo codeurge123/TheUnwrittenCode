@@ -2,11 +2,13 @@
 import { app } from "./app.js";
 import connectDB from "./db/connect.js";
 import dotenv from "dotenv";
+import { seedDatabase } from "./utils/seedDatabase.js";
 dotenv.config();
 
 const startServer = async () => {
   try {
     await connectDB();
+    await seedDatabase();
 
     app.on("error", (error) => {
       console.error("App error:", error);

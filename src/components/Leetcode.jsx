@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import DevLogs from "../Logs";
+import { getBlogs } from "../services/blogApi";
 
 
 function CardWithLabel({ label, theme = "amber", highlight = false, children }) {
@@ -55,6 +55,32 @@ function CardWithLabel({ label, theme = "amber", highlight = false, children }) 
 
 
 export default function Leetcode() {
+  const [blogs, setBlogs] = useState([]);
+  const [status, setStatus] = useState("loading");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadBlogs() {
+      try {
+        const data = await getBlogs("leetcode");
+        if (!isMounted) return;
+        setBlogs(data);
+        setStatus("ready");
+      } catch (loadError) {
+        if (!isMounted) return;
+        setError(loadError.message);
+        setStatus("error");
+      }
+    }
+
+    loadBlogs();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   //   const [data, setData] = useState(null);
   //   const [error, setError] = useState(null);
   //   const username = "";
@@ -133,19 +159,27 @@ export default function Leetcode() {
         </p>
       </div>
 
-      {/* Dev Logs */}
-      {
-        DevLogs.filter(log => log.category === "leetcode").map(log => (
+      {status === "loading" && (
+        <p className="text-center mt-10 font-mono text-sm">Loading blogs...</p>
+      )}
+
+      {status === "error" && (
+        <p className="text-center mt-10 font-mono text-sm text-red-700">
+          Could not load blogs: {error}
+        </p>
+      )}
+
+      {status === "ready" && blogs.map(blog => (
           <CardWithLabel
-            key={log.id}
-            label={log.date}
+            key={blog.slug}
+            label={blog.date}
             theme="blue"
           >
             <p className="text-sm sm:text-base mb-6">
-              {log.title}
+              {blog.title}
             </p>
 
-            <Link to={log.path}>
+            <Link to={`/Article/${blog.slug}`}>
               <span className="text-xl">[</span>
               <span className="
               border-b-2 border-blue-400
@@ -158,8 +192,7 @@ export default function Leetcode() {
               <span className="text-xl">]</span>
             </Link>
           </CardWithLabel>
-        ))
-      }
+        ))}
 
       {/* Footer */}
       <div className="

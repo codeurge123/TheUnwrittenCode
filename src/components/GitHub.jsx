@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DevLogs from "../Logs";
+import { getBlogs } from "../services/blogApi";
 
 function CardWithLabel({ label, children }) {
   return (
@@ -38,6 +38,32 @@ function CardWithLabel({ label, children }) {
 }
 
 export default function GitHub() {
+  const [blogs, setBlogs] = useState([]);
+  const [status, setStatus] = useState("loading");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadBlogs() {
+      try {
+        const data = await getBlogs("github");
+        if (!isMounted) return;
+        setBlogs(data);
+        setStatus("ready");
+      } catch (loadError) {
+        if (!isMounted) return;
+        setError(loadError.message);
+        setStatus("error");
+      }
+    }
+
+    loadBlogs();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="transition-colors duration-300 px-4 sm:px-6">
 
@@ -48,14 +74,23 @@ export default function GitHub() {
         </p>
       </div>
 
-      {/* Logs */}
-      {DevLogs.filter(log => log.category === "github").map(log => (
-        <CardWithLabel key={log.id} label={log.date}>
+      {status === "loading" && (
+        <p className="text-center mt-10 font-mono text-sm">Loading blogs...</p>
+      )}
+
+      {status === "error" && (
+        <p className="text-center mt-10 font-mono text-sm text-red-700">
+          Could not load blogs: {error}
+        </p>
+      )}
+
+      {status === "ready" && blogs.map(blog => (
+        <CardWithLabel key={blog.slug} label={blog.date}>
           <p className="text-sm sm:text-base mb-6">
-            {log.title}
+            {blog.title}
           </p>
 
-          <Link to={log.path}>
+          <Link to={`/Article/${blog.slug}`}>
             <span className="text-xl">[</span>
             <span className="
               border-b-2 border-blue-300
