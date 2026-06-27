@@ -84,7 +84,7 @@ export default function GitHub() {
         </p>
       )}
 
-      {status === "ready" && blogs.map(blog => (
+      {status === "ready" && blogs?.map(blog => (
         <CardWithLabel key={blog.slug} label={blog.date}>
           <p className="text-sm sm:text-base mb-6">
             {blog.title}

@@ -4,7 +4,7 @@ const inlinePattern =
   /(!\[[^\]]*]\([^)]+\)|\[[^\]]+]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g;
 
 function renderInline(text, keyPrefix) {
-  return text.split(inlinePattern).filter(Boolean).map((part, index) => {
+  return text.split(inlinePattern).filter(Boolean)?.map((part, index) => {
     const key = `${keyPrefix}-${index}`;
 
     if (part.startsWith("![") && part.includes("](")) {

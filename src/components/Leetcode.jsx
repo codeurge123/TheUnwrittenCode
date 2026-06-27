@@ -169,7 +169,7 @@ export default function Leetcode() {
         </p>
       )}
 
-      {status === "ready" && blogs.map(blog => (
+      {status === "ready" && blogs?.map(blog => (
           <CardWithLabel
             key={blog.slug}
             label={blog.date}
